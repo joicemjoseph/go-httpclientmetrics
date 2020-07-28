@@ -102,7 +102,7 @@ func (t *Transport) RoundTrip(r *http.Request) (*http.Response, error) {
 
 	t.m.GetOrCreateHistogram(
 		fmt.Sprintf(
-			`http_client_request_duration_seconds{status="%s", method="%s", url="%s", "module_name"=%s}`,
+			`http_client_request_duration_seconds{status="%s",method="%s",url="%s",module_name="%s"}`,
 			statusCode, resp.Request.Method, u, t.name,
 		),
 	).UpdateDuration(start)
